@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+    --green: #14a083;
+    --lgreen: #19bc9d;
+    --white: white;
+    --black: black;
+    --grey: #a3a3a3;
+    --lgrey: #dcdcdc;
+    --error: #e9c46a;
+    --llgreen: #d8e2dc;
+}
+* {
+    font-family: "Roboto", sans-serif !important;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+}
+i:before {
+    font-family: "Font Awesome 5 Free";
+}
+
+body {
+    background-color: var(--lgreen) !important;
+    height: 100vh !important;
+}
+.shadow {
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
+}
+.errorMessageBox {
+    padding: 0.5em 0.2em;
+    text-align: center;
+    margin-bottom: 0.6em;
+    color: var(--black);
+    background-color: var(--error);
+    border-radius: 0.5em;
+}
+.icon i,
+.input {
+    font-size: 1.3em;
+}
+.input:focus {
+    box-shadow: none;
+}
+.icon {
+    background-color: var(--green);
+    height: 51px !important;
+    width: 50px !important;
+}
+.icon i {
+    color: var(--white);
+}
+.login-btn,
+.reg-btn,
+.send-btn,
+.logout-btn,
+.send-reply-btn {
+    background-color: var(--green);
+    color: var(--white);
+    border: none;
+}
+.back-btn {
+    background-color: var(--grey);
+    color: var(--white);
+}
