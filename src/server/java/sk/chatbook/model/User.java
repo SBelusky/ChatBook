@@ -16,24 +16,25 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int user_id;
     @NonNull
-    private String user_name;
+    private String username;
     @NonNull
     private String email;
     @NonNull
     private String password;
 
+    @JsonIgnore
     @JsonManagedReference(value = "user-conversation_one")
     @OneToMany(mappedBy="user_one")
     @Nullable
     private Set<Conversation> coonversation_one;
 
+    @JsonIgnore
     @JsonManagedReference(value = "user-conversation_two")
     @OneToMany(mappedBy="user_two")
     @Nullable
     private Set<Conversation> conversation_two;
 
     @JsonIgnore
-    @Nullable
     @JsonManagedReference(value = "user-reply")
     @OneToMany(mappedBy="user")
     private Set<ConversationReply> replies;
@@ -50,12 +51,12 @@ public class User {
     }
 
     @NonNull
-    public String getUser_name() {
-        return user_name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser_name(@NonNull String user_name) {
-        this.user_name = user_name;
+    public void setUsername(@NonNull String user_name) {
+        this.username = user_name;
     }
 
     @Nullable

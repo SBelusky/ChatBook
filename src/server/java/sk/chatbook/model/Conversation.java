@@ -3,8 +3,7 @@ package sk.chatbook.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.lang.NonNull;
-
-import javax.annotation.Nullable;
+import org.springframework.lang.Nullable;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Set;
@@ -19,20 +18,15 @@ public class Conversation {
 
     @JsonBackReference(value = "user-conversation_one")
     @ManyToOne
-    @MapsId("user_one")
     @JoinColumn(name = "user_one")
     @NonNull
     private User user_one;
 
     @JsonBackReference(value = "user-conversation_two")
     @ManyToOne
-    @MapsId("user_two")
     @JoinColumn(name = "user_two")
     @NonNull
     private User user_two;
-
-    @NonNull
-    private Timestamp time;
 
     @JsonManagedReference(value = "conversation-reply")
     @OneToMany(mappedBy="conversation")
@@ -68,15 +62,6 @@ public class Conversation {
         this.user_two = user_two;
     }
 
-    @NonNull
-    public Timestamp getTime() {
-        return time;
-    }
-
-    public void setTime(@NonNull Timestamp time) {
-        this.time = time;
-    }
-
     @Nullable
     public Set<ConversationReply> getReply() {
         return reply;
@@ -85,4 +70,5 @@ public class Conversation {
     public void setReply(@Nullable Set<ConversationReply> reply) {
         this.reply = reply;
     }
+
 }

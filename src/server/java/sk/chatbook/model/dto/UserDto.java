@@ -2,16 +2,17 @@ package sk.chatbook.model.dto;
 
 public class UserDto {
     private int user_id;
-    private String user_name;
+    private String username;
     private String email;
     private String password;
+    private String repeatPassword;
 
     public UserDto() {
     }
 
-    public UserDto(int user_id, String user_name, String email, String password) {
+    public UserDto(int user_id, String username, String email, String password) {
         this.user_id = user_id;
-        this.user_name = user_name;
+        this.username = username;
         this.email = email;
         this.password = password;
     }
@@ -24,12 +25,12 @@ public class UserDto {
         this.user_id = user_id;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -46,5 +47,13 @@ public class UserDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
     }
 }

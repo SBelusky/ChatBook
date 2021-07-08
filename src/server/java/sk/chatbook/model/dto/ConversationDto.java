@@ -5,18 +5,34 @@ import java.sql.Timestamp;
 
 public class ConversationDto {
     private int c_id;
-    private User user_one;
-    private User user_two;
-    private Timestamp time;
+    private UserDto user_one;
+    private UserDto user_two;
+    private String lastMsg;
+    private Integer userIdOfLastMsg;
 
     public ConversationDto() {
     }
 
-    public ConversationDto(int c_id, User user_one, User user_two, Timestamp time) {
+    public ConversationDto(int c_id, UserDto user_one, UserDto user_two) {
         this.c_id = c_id;
         this.user_one = user_one;
         this.user_two = user_two;
-        this.time = time;
+    }
+
+    public UserDto getUser_one() {
+        return user_one;
+    }
+
+    public void setUser_one(UserDto user_one) {
+        this.user_one = user_one;
+    }
+
+    public UserDto getUser_two() {
+        return user_two;
+    }
+
+    public void setUser_two(UserDto user_two) {
+        this.user_two = user_two;
     }
 
     public int getC_id() {
@@ -27,27 +43,19 @@ public class ConversationDto {
         this.c_id = c_id;
     }
 
-    public User getUser_one() {
-        return user_one;
+    public String getLastMsg() {
+        return lastMsg;
     }
 
-    public void setUser_one(User user_one) {
-        this.user_one = user_one;
+    public void setLastMsg(String lastMsg) {
+        this.lastMsg = lastMsg;
     }
 
-    public User getUser_two() {
-        return user_two;
+    public Integer getUserIdOfLastMsg() {
+        return userIdOfLastMsg;
     }
 
-    public void setUser_two(User user_two) {
-        this.user_two = user_two;
-    }
-
-    public Timestamp getTime() {
-        return time;
-    }
-
-    public void setTime(Timestamp time) {
-        this.time = time;
+    public void setUserIdOfLastMsg(Integer userIdOfLastMsg) {
+        this.userIdOfLastMsg = userIdOfLastMsg;
     }
 }

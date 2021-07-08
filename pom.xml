@@ -11,7 +11,7 @@
 
     <groupId>sk.chatbook</groupId>
     <artifactId>ChatBook</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>v1.0</version>
     <packaging>jar</packaging>
     <name>ChatBook</name>
     <description>Like Facebook but better</description>

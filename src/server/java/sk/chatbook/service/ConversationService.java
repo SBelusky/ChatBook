@@ -1,17 +1,25 @@
 package sk.chatbook.service;
 
 import org.springframework.lang.Nullable;
+import sk.chatbook.model.Conversation;
 import sk.chatbook.model.dto.ConversationDto;
-import sk.chatbook.model.dto.UserDto;
-import sk.chatbook.model.User;
+
+import java.util.List;
+import java.util.Map;
 
 public interface ConversationService {
     @Nullable
-    UserDto getConversationById(int c_id);
+    ConversationDto getConversationById(int c_id);
 
     @Nullable
-    UserDto getConversationByUsers(int user_one_id, int user_two_id);
+    List<ConversationDto> getConversationsByUser(int user_id);
 
     @Nullable
-    User addConversation(ConversationDto conversationDto);
+    Conversation addConversation(ConversationDto conversationDto);
+
+    @Nullable
+    Map<String, String> validateConversation(ConversationDto conversationDto);
+
+    @Nullable
+    List<ConversationDto> showOnlyOneUserInConversations(int loggedUserId, List<ConversationDto> conversationDtoList);
 }

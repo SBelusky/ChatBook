@@ -11,9 +11,14 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "conversation_reply")
 public class ConversationReply {
-    @EmbeddedId
+    //    @EmbeddedId
+//    @NonNull
+//    private ConversationReplyKey id;
+
+    @Id
     @NonNull
-    private ConversationReplyKey id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int cr_id;
     @NonNull
     private String reply;
     @NonNull
@@ -21,29 +26,26 @@ public class ConversationReply {
 
     @JsonBackReference(value = "user-reply")
     @ManyToOne
-    @JoinColumn(name="user_id_fk", nullable=false)
-    @MapsId("user_id_fk")
+    @JoinColumn(name = "user_id_fk", nullable = false)
     @NonNull
     private User user;
 
     @JsonIgnore
     @JsonBackReference(value = "conversation-reply")
     @ManyToOne
-    @JoinColumn(name="c_id_fk")
-    @MapsId("c_id_fk")
+    @JoinColumn(name = "c_id_fk")
     @NonNull
     private Conversation conversation;
 
     public ConversationReply() {
     }
 
-    @NonNull
-    public ConversationReplyKey getId() {
-        return id;
+    public int getCr_id() {
+        return cr_id;
     }
 
-    public void setId(@NonNull ConversationReplyKey id) {
-        this.id = id;
+    public void setCr_id(int cr_id) {
+        this.cr_id = cr_id;
     }
 
     @NonNull

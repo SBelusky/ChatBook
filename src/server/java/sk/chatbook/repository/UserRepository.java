@@ -3,8 +3,8 @@ package sk.chatbook.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import sk.chatbook.model.User;
-import sk.chatbook.model.dto.UserDto;
 
 @Component
 public interface UserRepository extends JpaRepository<User,Integer>{
@@ -15,5 +15,6 @@ public interface UserRepository extends JpaRepository<User,Integer>{
             "WHERE email = ?1 " +
             "LIMIT 1",
             nativeQuery = true)
-    UserDto findUserByEmail(String email);
+    @Transactional
+    User findUserByEmail(String email);
 }
